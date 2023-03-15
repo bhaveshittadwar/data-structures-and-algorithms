@@ -3,6 +3,7 @@ public class SinglyLinkedList {
   public Node tail;
   public int size;
 
+  // Create Single Linked List
   public Node createSinglyLinkedList(int nodeValue) {
     Node node = new Node();
     node.next = null;
@@ -47,5 +48,43 @@ public class SinglyLinkedList {
     
     // Increase the size for every case
     size++;
+  }
+
+  // Single Linked List Traversal
+  public void traverseSingleList() {
+    if (head == null) {
+      System.out.println("SLL does not exist");
+      return;
+    }
+
+    Node tempNode = head;
+    String result = "";
+    while (tempNode != null) {
+      result += tempNode != tail ? tempNode.value + " -> " : "" + tempNode.value; 
+      tempNode = tempNode.next;
+    }
+    System.out.println(result);
+  }
+
+  // Search a Node by value
+  public boolean searchNode(int key) {
+    if (head == null) {
+      System.out.println("SLL does not exist");
+      return false;
+    }
+
+    int cnt = -1;
+
+    Node tempNode = head;
+    while (tempNode != null) {
+      cnt++;
+      if (tempNode.value == key) {
+        System.out.println("Found the key at location: " + cnt);
+        return true;
+      }
+      tempNode = tempNode.next;
+    }
+    System.out.println("Key not found");
+    return false;
   }
 }
